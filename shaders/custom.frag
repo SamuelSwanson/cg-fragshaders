@@ -11,6 +11,7 @@ uniform sampler2D image;
 out vec4 FragColor;
 
 void main() {
-    float NPCRI = (texture(image, texcoord).r-texture(image, texcoord).b)/(texture(image, texcoord).r+texture(image, texcoord).b);
+    vec4 color = texture(image, texcoord);
+    float NPCRI = (color.r-color.b)/(color.r+color.b);
     FragColor = vec4(NPCRI,NPCRI,NPCRI,1.0);
 }
