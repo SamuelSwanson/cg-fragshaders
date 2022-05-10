@@ -9,5 +9,10 @@ uniform sampler2D image;
 out vec4 FragColor;
 
 void main() {
-    FragColor = texture(image, texcoord);
+    vec2 texture_coordinate = 2.0 * texcoord - 1.0;
+    float theta = atan(texture_coordinate.y, texture_coordinate.x);
+    float mag = sqrt(pow(texture_coordinate.x,2.0)+pow(texture_coordinate.y,2.0));
+    float radius = pow(mag,1.5);
+    vec2 final = vec2(radius*cos(theta), radius*sin(theta));
+    FragColor = texture(image, final);
 }
