@@ -12,5 +12,5 @@ out vec4 FragColor;
 
 void main() {
     float NPCRI = (texture(image, texcoord).r-texture(image, texcoord).b)/(texture(image, texcoord).r+texture(image, texcoord).b);
-    FragColor = vec4(NPCRI*.02,NPCRI,NPCRI,1.0);
+    FragColor = vec4(NPCRI,NPCRI,NPCRI,1.0);
 }
